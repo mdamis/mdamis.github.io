@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Home</title>
+        <link href="style.css" rel="stylesheet" type="text/css" media="all">
+        <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div id="message"></div>
+
+        <script src="libs/jquery.js"></script>
+        <script src="libs/typed.js"></script>
+        <script>
+            $(function(){
+                $("#message").typed({
+                    strings: ["Website under construction.", "このウェブサイトは開設中です。", "Site en construction."],
+                    typeSpeed: 45,
+                    backSpeed: 40,
+                    backDelay: 1000,
+                    loop: true,
+                    showCursor: false
+                });
+            });
+        </script>
+    </body>
+</html>
