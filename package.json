@@ -1,0 +1,26 @@
+{
+  "name": "mdamis.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0"
+  },
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mdamis/mdamis.github.io.git"
+  },
+  "author": "mdamis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mdamis/mdamis.github.io/issues"
+  },
+  "homepage": "https://github.com/mdamis/mdamis.github.io#readme"
+}
