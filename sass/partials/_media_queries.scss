@@ -1,0 +1,31 @@
+$small-breakpoint: 376px;
+$medium-breakpoint: 600px;
+$large-breakpoint: 900px;
+
+@media (max-width: $small-breakpoint) {
+    h1 {
+        font-size: 38px;
+    }
+    h3 {
+        font-size: 95%;
+    }
+    li.social-icon {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: $medium-breakpoint) {
+    #languages {
+        text-align: center;
+        margin-right: 0;
+    }
+}
+
+@media (min-width: $large-breakpoint) {
+    h1 {
+        font-size: 90px;
+    }
+    #background {
+        transform: scale(1.05);
+    }
+}

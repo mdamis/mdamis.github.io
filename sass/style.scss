@@ -1,18 +1,31 @@
-* {
-    padding: 0;
-    margin: 0;
-    font-family: 'Helvetica Neue', 'PT Sans', 'Arial', sans-serif;
-}
+// Keyframes
+@import "partials/keyframes.scss";
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Variables
+$overlay-color: rgba(0, 0, 0, 0.45);
+$button-color: rgba(54, 226, 183, 0.7);
+$button-hover-color: rgba(50, 149, 127, 0.7);
+
+////////////////////////////////////////////////////////////////////////////////
+
 body {
     min-width: 100%;
     width: 100%;
     min-height: 100%;
+    padding: 0;
+    margin: 0;
     color: white;
+    font-family: 'Helvetica Neue', 'PT Sans', 'Arial', sans-serif;
 }
-#background {
+.full-screen {
     position: fixed;
     width: 100%;
     height: 100%;
+}
+#background {
+    @extend .full-screen;
     background: url("../assets/background.jpg") no-repeat center center fixed;
     background-size: cover;
     filter: blur(11px);
@@ -20,11 +33,9 @@ body {
     transform: scale(1.15);
 }
 #overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
+    @extend .full-screen;
     z-index: -1;
-    background: rgba(0, 0, 0, 0.45);
+    background: $overlay-color;
 }
 #wrapper {
     display: flex;
@@ -41,10 +52,6 @@ main {
     text-align: center;
     padding-top: 25px;
     padding-bottom: 25px;
-}
-a {
-    color: white;
-    text-decoration: none;
 }
 .font-weight-100 {
     font-weight: 100;
@@ -76,71 +83,36 @@ h3 {
     font-family: 'Lato';
     font-style: bold;
 }
-a.button {
-    display: inline-block;
-    padding: 10px 25px;
-    text-align: center;
-    transition: background-color 0.5s ease-out;
-    background: rgba(54, 226, 183, 0.7);
-}
-a.button:hover {
-    background: rgba(50, 149, 127, 0.7);
-}
-ul li {
-    display: inline-block;
-    padding: 10px;
-    font-size: 16px;
+a {
+    color: white;
+    text-decoration: none;
+    &.button {
+        display: inline-block;
+        padding: 10px 25px;
+        text-align: center;
+        transition: background-color 0.5s ease-out;
+        background: $button-color;
+        &:hover {
+            background: $button-hover-color;
+        }
+    }
 }
 ul {
+    margin: 0;
+    padding: 0;
     font-size: 0;
     display: inline-block;
+    li {
+        display: inline-block;
+        padding: 10px;
+        font-size: 16px;
+    }
 }
 nav > ul:hover > a > li {
     opacity: 0.5;
 }
 nav > ul:hover > a:hover > li {
     opacity: 1;
-}
-@media (max-width: 600px) {
-    #languages {
-        text-align: center;
-        margin-right: 0;
-    }
-}
-@media (max-width: 376px) {
-    h1 {
-        font-size: 38px;
-    }
-    h3 {
-        font-size: 95%;
-    }
-    li.social-icon {
-        font-size: 16px;
-    }
-}
-@media (min-width: 900px) {
-    h1 {
-        font-size: 90px;
-    }
-    #background {
-        transform: scale(1.05);
-    }
-}
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@keyframes slideFromLeft {
-    0% {
-        left: -25px;
-    }
-    100% {
-        left: 0;
-    }
 }
 .left {
     position: relative;
@@ -151,14 +123,6 @@ nav > ul:hover > a:hover > li {
     animation-duration: 2s, 1.5s;
     animation-delay: 0.5s, 0.25s;
 }
-@keyframes slideFromRight {
-    0% {
-        right: -25px;
-    }
-    100% {
-        right: 0;
-    }
-}
 .right {
     position: relative;
     right: -25px;
@@ -167,14 +131,6 @@ nav > ul:hover > a:hover > li {
     animation-fill-mode: forwards;
     animation-duration: 2s, 1.5s;
     animation-delay: 0.5s, 0.25s;
-}
-@keyframes slideFromTop {
-    0% {
-        top: -100px;
-    }
-    100% {
-        top: 0;
-    }
 }
 .title-separator {
     position: relative;
@@ -186,16 +142,6 @@ nav > ul:hover > a:hover > li {
     animation-duration: 1.25s;
     animation-delay: 1.25s;
 }
-@keyframes scaleDownText {
-    0% {
-        transform: scale(1.1);
-        text-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-    }
-    100% {
-        transform: scale(1);
-        text-shadow: none;
-    }
-}
 .scale-down-text {
     opacity: 0;
     transform: scale(1.1);
@@ -203,32 +149,6 @@ nav > ul:hover > a:hover > li {
     animation-fill-mode: forwards;
     animation-duration: 1.75s, 2s;
     animation-delay: 2.75s, 2.5s;
-}
-@keyframes scaleDownBox {
-    0% {
-        transform: scale(1.1);
-        box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.35);
-    }
-    100% {
-        transform: scale(1);
-        box-shadow: none;
-    }
-}
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    15% {
-        transform: scale(1.05);
-        box-shadow: 0 4px 7px 0 rgba(0, 0, 0, 0.35);
-    }
-    40% {
-        transform: scale(1);
-        box-shadow: none;
-    }
-    100% {
-        transform: scale(1);
-    }
 }
 .pulse {
     opacity: 0;
@@ -238,3 +158,8 @@ nav > ul:hover > a:hover > li {
     animation-duration: 2s, 2s, 8s;
     animation-delay: 3s, 3s, 6s;
 }
+
+////////////////////////////////////////////////////////////////////////////////
+
+// Media Queries
+@import "partials/media_queries.scss";
